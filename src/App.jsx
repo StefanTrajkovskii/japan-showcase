@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useLayoutEffect } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import TextReveal from './components/TextReveal'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -175,7 +176,9 @@ export default function App() {
         </a>
         <div className="flex items-center gap-5 md:gap-[2.6vw]">
           {[['#exhibition','Exhibition'],['#philosophy','Spirit'],['#visit','Visit']].map(([href,label]) => (
-            <a key={label} href={href} className={`no-underline text-[13px] tracking-[1px] opacity-90 transition-colors duration-400 hidden sm:block ${scrolled ? 'text-ink' : 'text-[#fdf7ef]'}`}>{label}</a>
+            <a key={label} href={href} className={`no-underline text-[13px] tracking-[1px] opacity-90 hidden sm:block ${scrolled ? 'text-ink' : 'text-[#fdf7ef]'}`}>
+              <TextReveal text={label} />
+            </a>
           ))}
           <a href="#visit" className={`text-[12.5px] tracking-[1.5px] px-[22px] py-[11px] rounded-full no-underline font-medium transition-all duration-400 ${navBtnCls}`}>Plan your visit</a>
         </div>
