@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@theme {
+  --font-mincho: 'Shippori Mincho', serif;
+  --font-zen: 'Zen Kaku Gothic New', sans-serif;
+  --color-accent: #bd5a31;
+  --color-parchment: #f4ece1;
+  --color-ink: #221b16;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body {
+    background: #f4ece1;
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    color: #221b16;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: #d98b5f; color: #fff; }
+}
+
+/* hide hero elements until GSAP intro plays */
+[data-gsap-intro] {
+  visibility: hidden;
+}
+
+@keyframes floatNote {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
